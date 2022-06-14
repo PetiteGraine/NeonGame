@@ -4,7 +4,8 @@ public class MainMenu : MonoBehaviour
 {
   public void PlayGame()
   {
-    SceneManager.LoadScene("SelectLevel");
+    AutoSplitterData.State = RunState.Running;
+    LoadScene.Select("SelectLevel");
   }
 
   public void QuitGame()
