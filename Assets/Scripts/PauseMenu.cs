@@ -51,26 +51,28 @@ public class PauseMenu : MonoBehaviour
   {
     Time.timeScale = 1f;
     GameIsPaused = false;
-    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    LoadScene.Select(SceneManager.GetActiveScene().name);
   }
   public void NextLevel()
   {
     Time.timeScale = 1f;
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    string scenePath = SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
+    string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+    LoadScene.Select(sceneName);
   }
 
   public void LoadMenu()
   {
     Time.timeScale = 1f;
     GameIsPaused = false;
-    SceneManager.LoadScene("Menu");
+    LoadScene.Select("Menu");
   }
 
   public void SelectLevel()
   {
     Time.timeScale = 1f;
     GameIsPaused = false;
-    SceneManager.LoadScene("SelectLevel");
+    LoadScene.Select("SelectLevel");
   }
 
   public void QuitGame()

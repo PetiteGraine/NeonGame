@@ -13,6 +13,9 @@ public class Checkpoint : MonoBehaviour
   {
     if (collision.CompareTag("Player"))
     {
+      if (gameObject.GetComponent<BoxCollider2D>().enabled)
+        AutoSplitterData.Checkpoint++;
+
       playerSpawn.position = transform.position;
       gameObject.GetComponent<BoxCollider2D>().enabled = false;
       graphics.sprite = Resources.Load<Sprite>("Checkpoint");
